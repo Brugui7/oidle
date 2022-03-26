@@ -1,0 +1,203 @@
+.main-page-container {
+  margin-top: 1em;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  height: calc(100% - 110px);
+}
+
+.main-page-container {
+  margin-top: 1em;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  height: calc(100% - 110px);
+}
+
+.main-page-container-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.relative {
+  position: relative;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.flex {
+  display: flex;
+}
+
+button, input {
+  padding: 0;
+  line-height: inherit;
+  color: inherit;
+}
+
+button, [role="button"] {
+  cursor: pointer;
+}
+button, [type='button'] {
+  -webkit-appearance: button;
+}
+
+button {
+  color: #333;
+  background-color: #f4f4f4;
+  outline: none;
+}
+.search-result {
+  padding: 0;
+}
+
+.search-container li {
+  position: relative;
+  cursor: pointer;
+  text-decoration: none;
+  height: 1.6em;
+  border-radius: 4px;
+  width: 100%;
+  margin: 0;
+  padding: 0.3em 0;
+  display: flex;
+  align-items: center;
+  background-color: #5e5d5d7a;
+  justify-content: center;
+  color: #FFF;
+  letter-spacing: 1.5px;
+  margin-top: 2px;
+}
+
+.search-container li:hover {
+  color: #2c3a41;
+  background-color: #e6e6e6;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.play-button {
+  display: flex;
+  margin: auto;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  border-radius: 90px;
+  border: 3px solid;
+  padding: 1em;
+}
+
+.play-icon {
+  margin-left: 3px;
+}
+
+.play-icon:hover {
+  margin-left: 3px;
+  color: blueviolet;
+}
+
+.play-button:hover {
+  color: #FFF;
+}
+.play-button:hover * {
+ color: blueviolet;
+}
+
+.submit-button {
+  border-radius: 3px;
+  padding: 0 0.5em;
+  background-color: blueviolet;
+  color: #FFF;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  outline: none;
+  border: none;
+}
+
+.submit-button:hover {
+  background-color: #8f4edc;
+}
+
+.skip-button {
+  color: #8d8d8d;
+  text-transform: none;
+  background-color: transparent;
+  background-image: none;
+  font-family: inherit;
+  height: 100%;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  padding: 0.5rem;
+  border-style: none;
+  margin: 0 0 0 0.25rem;
+  z-index: 10;
+  letter-spacing: 1.5px;
+}
+
+.skip-button:hover {
+  color: #FFF;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: .5rem;
+  margin: 1rem 0;
+  box-sizing: border-box;
+  background-color: #121212;
+  color: #FFF;
+  border: none;
+  border-bottom: 1px solid #8d8d8d;
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+}
+
+.song-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #5e5d5d7a;
+  padding: 0.5em;
+}
+
+.a-to-spotify {
+  text-decoration: none;
+  color: #52cba2;
+}
+
+.finish-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.final-tries-container {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  justify-content: center;
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.tries-text {
+  letter-spacing: 1.5px;
+  font-weight: bold;
+  font-size: larger;
+}
+
+.tries-icons-container {
+  display: flex;
+  justify-content: center;
+}

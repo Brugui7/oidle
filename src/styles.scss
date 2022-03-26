@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+$color-positive: #00FF00;
+
+body {
+  background-color: #121212;
+  color: #FFF;
+  font-family: 'Roboto', serif;
+  margin: 0 !important;
+  padding-right: 1em;
+  padding-left: 1em;
+  height: 100vh;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

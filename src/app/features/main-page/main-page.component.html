@@ -1,0 +1,100 @@
+<div class="main-page-container">
+  <div class="main-page-container-wrapper" *ngIf="daySong; else loading">
+
+    <div *ngIf="!finished; else finishContainer" class="tries-container">
+      <app-input-result
+        *ngFor="let userTry of tries"
+        [emoji]="userTry.emoji"
+        [text]="userTry.text"
+      ></app-input-result>
+    </div>
+
+    <ng-template #finishContainer>
+      <div class="finish-container">
+        <div class="song-banner">
+          <img [src]="daySong.album.images[2].url" alt="{{daySong.name}} cover">
+          <span> {{ daySong.name }}</span>
+          <a
+            class="a-to-spotify"
+            [href]="daySong.external_urls.spotify" target="_blank"
+          >
+            👉 Escuchar en Spotify
+          </a>
+        </div>
+
+        <div class="final-tries-container">
+          <div
+            class="tries-text"
+          >
+            {{ tryNumber }} {{ tryNumber === 1 ? 'intento' : 'intentos' }}
+          </div>
+          <div class="tries-icons-container">
+            <span *ngFor="let finalTry of tries">{{ finalTry.emoji }}</span>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <div class="bottom-container">
+      <button (click)="playPreview()" class="play-button">
+        <svg
+          class="play-icon"
+          xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+          fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <polygon points="5 3 19 12 5 21 5 3"></polygon>
+        </svg>
+      </button>
+
+      <div class="search-container">
+        <div class="input-search-container">
+          <input
+            [disabled]="finished"
+            placeholder="🔎 ¿La conoces? Filtra por el título / artista"
+						#searchBox
+            id="searchBox"
+            [(ngModel)]="searchTerm"
+            (input)="search(searchBox.value)"
+          />
+        </div>
+        <ul class="search-result">
+          <li
+            *ngFor="let song of searchResults$ | async"
+            (click)="setValue(song)"
+          >
+            {{song}}
+          </li>
+        </ul>
+      </div>
+
+      <div class="buttons-container">
+        <button
+          (click)="addPreviewTime()"
+          [disabled]="finished"
+          class="skip-button"
+        >
+          AMPLIAR
+          <span *ngIf="previewTimeSeconds < MAX_PREVIEW_TIME">
+            (+{{ nextSkipSeconds }}s)
+          </span>
+        </button>
+
+        <button
+          class="submit-button"
+          (click)="submitTry()"
+          [disabled]="tryNumber >= MAX_TRIES"
+        >
+          ENVIAR
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <audio #audioElement [src]="daySong?.preview_url">
+    <p>Tu navegador no soporta audio HTML5</p>
+  </audio>
+
+  <ng-template #loading>
+    <h1>CARGANDO...</h1>
+  </ng-template>
+</div>

@@ -1,0 +1,31 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border-bottom: 1px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+li {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+
+.app-name {
+  font-size: 3rem;
+}
+
+.pointer {
+  cursor: pointer;
+}
