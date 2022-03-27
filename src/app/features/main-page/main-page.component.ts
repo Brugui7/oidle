@@ -197,7 +197,7 @@ export class MainPageComponent implements OnInit {
 
     const text = `#Oidle #${
       new Date().toLocaleDateString()
-    } 🔈${ emojis } https://oidle.app`;
+    }\n\n🔈${ emojis }\n\nhttps://oidle.app`;
 
     if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
       (window.navigator as any).share({text});
