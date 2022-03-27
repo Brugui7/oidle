@@ -5,15 +5,17 @@ import { debounceTime, distinctUntilChanged, Observable, of, Subject, switchMap 
 import { SONG_NAMES } from 'src/app/core/constants/songs.conts';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/shared/dialog/dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { DataService } from 'src/app/core/services/data.service';
 
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.scss']
+  styleUrls: [ './main-page.component.scss' ],
 })
 export class MainPageComponent implements OnInit {
 
-  @ViewChild('audioElement', { static: false }) public _audioRef?: ElementRef;
+  @ViewChild('audioElement', {static: false}) public _audioRef?: ElementRef;
   private audio?: HTMLMediaElement;
 
   public MAX_PREVIEW_TIME = 16;
@@ -25,6 +27,7 @@ export class MainPageComponent implements OnInit {
   private searchTerms = new Subject<string>();
   public searchTerm?: string;
   public finished = false;
+  public playing = false;
   public tries = [
     {
       emoji: '',
@@ -54,48 +57,71 @@ export class MainPageComponent implements OnInit {
   public tryNumber = 0;
 
   constructor(
-    private spotifyService: SpotifyService
+    private spotifyService: SpotifyService,
+    private _snackBar: MatSnackBar,
+    public dataService: DataService,
   ) { }
 
   ngOnInit(): void {
-    this.loadSong();
+    this.initialize();
     this.searchResults$ = this.searchTerms.pipe(
       debounceTime(300),
       distinctUntilChanged(),
       switchMap((term: string) => {
         return of(SONG_NAMES.filter((songName: string) => {
-          return term.trim() && songName.toLowerCase().includes(term.toLocaleLowerCase())
+          return term.trim() && songName.toLowerCase().includes(term.toLocaleLowerCase());
         }).slice(0, 5));
       }),
     );
   }
 
   public ngAfterViewInit() {
-    console.log(this._audioRef);
     this.audio = this._audioRef?.nativeElement;
+  }
+
+  private initialize() {
+    const today = new Date().toLocaleDateString();
+    const todayResult = this.dataService.getResultByDate(today);
+    if (!!todayResult) {
+      this.daySong = todayResult.song;
+      this.tries = todayResult.tries;
+      this.finished = true;
+      this.tryNumber = this.tries.filter(userTry => !!userTry.emoji).length;
+      return;
+    }
+
+    this.loadSong();
   }
 
   private loadSong() {
     this.spotifyService.getSongOfTheDay().subscribe((song: Song) => {
       this.daySong = song;
-      console.log(song);
     });
   }
 
-  public playPreview(): void {
+  public onPlayPauseClick(): void {
     if (!this.audio) {
+      return;
+    }
+
+    if (this.playing) {
+      this.audio.pause();
+      this.audio.currentTime = 0;
+      this.playing = false;
       return;
     }
 
     this.audio.currentTime = 0;
     const interval = setInterval(() => {
-      if (!!this.audio) {
+      if (!!this.audio && !this.finished) {
         this.audio.pause();
         this.audio.currentTime = 0;
+        this.playing = false;
       }
       clearInterval(interval);
     }, this.previewTimeSeconds * 1000);
     this.audio.play();
+    this.playing = true;
   }
 
   public addPreviewTime(): void {
@@ -107,8 +133,8 @@ export class MainPageComponent implements OnInit {
 
     this.tries[this.tryNumber++] = {
       emoji: '⏩',
-      text: 'AMPLIACIÓN'
-    }
+      text: 'AMPLIACIÓN',
+    };
 
     if (this.tryNumber >= this.MAX_TRIES) {
       this.finished = true;
@@ -130,19 +156,19 @@ export class MainPageComponent implements OnInit {
     }
 
     if (
-      this.searchTerm.trim().
-        toLocaleLowerCase() === this.daySong?.name.trim().toLocaleLowerCase()
+      this.searchTerm.trim().toLocaleLowerCase() === this.daySong?.name.trim().toLocaleLowerCase()
     ) {
       this.tries[this.tryNumber++] = {
         emoji: '✔️',
-        text: this.searchTerm
-      }
+        text: this.searchTerm,
+      };
       this.finished = true;
+      this.saveWin();
     } else {
       this.tries[this.tryNumber++] = {
         emoji: '❌',
-        text: this.searchTerm
-      }
+        text: this.searchTerm,
+      };
     }
 
     this.searchTerm = '';
@@ -151,8 +177,42 @@ export class MainPageComponent implements OnInit {
     }
 
     if (this.finished && this.audio) {
+      this.audio.currentTime = 0;
       this.audio.play();
+      this.playing = true;
     }
+  }
+
+  public onShareButtonClick() {
+    const emojis = this.tries.map(userTry => userTry.emoji).join('');
+
+    const text = `#Oidle #${
+      new Date().toLocaleDateString()
+    } 🔈${ emojis } https://oidle.app`;
+
+    const selBox = document.createElement('textarea');
+    selBox.style.position = 'fixed';
+    selBox.style.left = '0';
+    selBox.style.top = '0';
+    selBox.style.opacity = '0';
+    selBox.value = text;
+    document.body.appendChild(selBox);
+    selBox.focus();
+    selBox.select();
+    document.execCommand('copy');
+    document.body.removeChild(selBox);
+    this._snackBar.open(
+      'Copiado al portapapeles ✔️',
+      'Cerrar'
+    );
+  }
+
+  private saveWin(): void {
+    if (!this.daySong) {
+      return;
+    }
+
+    this.dataService.writeDayResult(this.tries, this.daySong);
   }
 
 }

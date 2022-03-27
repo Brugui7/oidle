@@ -11,6 +11,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { DialogComponent } from './shared/dialog/dialog.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -26,9 +27,10 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
     FormsModule,
     NoopAnimationsModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ],
-  providers: [HttpClientModule, MatDialogModule],
+  providers: [HttpClientModule, MatDialogModule, MatSnackBarModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

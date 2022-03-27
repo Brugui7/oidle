@@ -12,7 +12,7 @@ export class SpotifyService {
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization: 'Bearer BQB5meJ7JTNTi_4LUw6qHJBmfopSRCJLkqYlWM1BmvEh-a1h3TI3znPTikjI0bjYuXCxKZzhAzraiNilvPueiziEqzmcDhphLzIE7C9oIEF0upJcqCLtPIRr6jSOMYKwNdmDh2Pbd32R2Dg7yHNP7mQCxHD-t3M_N5YvFtJD40L54cA0-gTMaIQ',
+      Authorization: 'Bearer BQD2unq_R-RwChHAeMwtL2JUXgdF6CmlGoUm1jLwE1T3ZklCSNg9UU5VsFjZH-RfogYGR-HveY9UST8AOUC9quaPByA9IjeoAkH1dGkm3P5cgSIq3mEvlvxP0uwoTsIUJpibVNCGWJSoNS1yz_8FvPGxAxGm3ytuVCC4Xi_11hCunTNW3vFDbZc',
     }),
   };
 
@@ -24,7 +24,7 @@ export class SpotifyService {
 
   public getSongOfTheDay(): Observable<Song> {
     const today = new Date();
-    const dayNumber = today.setHours(0, 0, 0, 0);
+    const dayNumber = Math.round(today.setHours(0, 0, 0, 0) / 864e5);
     const songID = SONG_IDS[dayNumber % SONG_IDS.length];
     console.log(today);
     console.log(dayNumber);

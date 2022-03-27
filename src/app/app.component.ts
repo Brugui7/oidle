@@ -1,18 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DialogComponent } from 'src/app/shared/dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { DataService } from './core/services/data.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'oidle';
 
   constructor(
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public dataService: DataService
   ) {}
+
+  ngOnInit(): void {
+    if (this.dataService.isFirstTime()) {
+      this.openHelpDialog();
+      this.dataService.setFirstTime(false);
+    }
+  }
 
   public openHelpDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {

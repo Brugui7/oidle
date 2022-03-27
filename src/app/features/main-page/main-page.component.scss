@@ -123,7 +123,22 @@ button {
   border: none;
 }
 
-.submit-button:hover {
+.share-button {
+  display: flex;
+  justify-content: center;
+  border-radius: 3px;
+  background-color: blueviolet;
+  color: #FFF;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  outline: none;
+  border: none;
+  align-items: center;
+  padding: .5rem;
+  margin-top: 1em;
+}
+
+.submit-button:hover, .share-button:hover {
   background-color: #8f4edc;
 }
 
@@ -201,3 +216,9 @@ input {
   display: flex;
   justify-content: center;
 }
+
+.share-button-container {
+  display: flex;
+  justify-content: center;
+}
+
