@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/shared/dialog/dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DataService } from 'src/app/core/services/data.service';
+import { Banner } from 'src/app/core/models/banner.model';
 
 @Component({
   selector: 'app-main-page',
@@ -17,6 +18,7 @@ export class MainPageComponent implements OnInit {
 
   @ViewChild('audioElement', {static: false}) public _audioRef?: ElementRef;
   private audio?: HTMLMediaElement;
+  private searchTerms = new Subject<string>();
 
   public MAX_PREVIEW_TIME = 16;
   public MAX_TRIES = 6;
@@ -24,10 +26,10 @@ export class MainPageComponent implements OnInit {
   public nextSkipSeconds: number = 1;
   public previewTimeSeconds = 1;
   public searchResults$?: Observable<string[]>;
-  private searchTerms = new Subject<string>();
   public searchTerm?: string;
   public finished = false;
   public playing = false;
+  public banner: Banner;
   public tries = [
     {
       emoji: '',
@@ -60,7 +62,14 @@ export class MainPageComponent implements OnInit {
     private spotifyService: SpotifyService,
     private _snackBar: MatSnackBar,
     public dataService: DataService,
-  ) { }
+  ) {
+    this.banner = new Banner(
+      'ca-pub-8403162055734795',
+      8223140182,
+      'auto',
+      true
+    )
+  }
 
   ngOnInit(): void {
     this.initialize();

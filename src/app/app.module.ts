@@ -12,13 +12,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { DialogComponent } from './shared/dialog/dialog.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { BannerComponent } from './shared/banner/banner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
     InputResultComponent,
-    DialogComponent
+    DialogComponent,
+    BannerComponent
   ],
   imports: [
     BrowserModule,

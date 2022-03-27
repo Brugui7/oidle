@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
         title: '¿CÓMO SE JUEGA?',
         text: '🎧 Escucha parte de la canción, después encuentra el artista y título filtrando' +
           ' en la barra de búsqueda. ' +
-          '\n\n⏩ Fallos o ampliaciones desbloquean más tiempo de la canción.' +
+          '\n\n⏩ Las ampliaciones desbloquean más tiempo de la canción pero restan un intento.' +
           '\n\n👍 ¡Contesta en el menor número de intentos posibles y comparte tu resultado!'
       },
     });
