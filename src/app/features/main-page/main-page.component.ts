@@ -199,6 +199,11 @@ export class MainPageComponent implements OnInit {
       new Date().toLocaleDateString()
     } 🔈${ emojis } https://oidle.app`;
 
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+      (window.navigator as any).share({text});
+      return
+    }
+
     const selBox = document.createElement('textarea');
     selBox.style.position = 'fixed';
     selBox.style.left = '0';
