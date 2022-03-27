@@ -12,7 +12,7 @@ export class SpotifyService {
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization: 'Bearer BQDaEKacC9m419bbXHBk-ryoIHU_6NVN-lYVw6Urr0jzlMLaoKfi-XjI0yI-ZBb0zyXIIk54i1MsVBowIPknWs_OZygFac-XaddG4kdFZqkM6WFckBOafqBS30RPon_lU3f2qXx2ljIl7WhcIpwiF19PrCxLPg3az8pRoJNVo4OCKUuTfMKpe6I',
+      Authorization: 'Bearer BQBbNuajK1myKjSIqy39m9goOuoUCCDmlZcbNX-AtzvEbwbmyi5y-i0hHEo-hbdfWVtu3lPcqpQLVj_olausIIjQoUKN_FpOyNP31RJTPSDYeT5vJs7gZOQduhU-WFWtpUWEqTIzcWE_QCJLijDeu5Bmr56Qw_v6R7M',
     }),
   };
 
