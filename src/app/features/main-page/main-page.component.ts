@@ -103,8 +103,10 @@ export class MainPageComponent implements OnInit {
   }
 
   private loadSong() {
-    this.spotifyService.getSongOfTheDay().subscribe((song: Song) => {
-      this.daySong = song;
+    this.spotifyService.login().subscribe(_ => {
+      this.spotifyService.getSongOfTheDay().subscribe((song: Song) => {
+        this.daySong = song;
+      });
     });
   }
 
