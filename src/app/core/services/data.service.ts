@@ -38,7 +38,6 @@ export class DataService {
     if (!userHistoryLocal) {
       return null;
     }
-    console.log(userHistoryLocal);
     const userHistory = JSON.parse(userHistoryLocal);
     console.log(userHistory);
     return userHistory.find((history: any) => history.date === dateString);

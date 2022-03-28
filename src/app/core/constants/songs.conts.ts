@@ -28,20 +28,25 @@ export const SONG_NAMES: string[] = [
   'Chica de ayer - Nacha Pop',
   'Cien gaviotas - Duncan Dhu',
   'El Run Run (with Rosario) - Estopa',
-  'Partiendo la Pana - Estopa',
+  'Partiendo la Pana - Estopa', // s
+  'Aves de Paso - Joaquín Sabina',
+  'Algo Personal - Joan Manuel Serrat',
+  'Mediterraneo - Joan Manuel Serrat',
+  '19 Dias y 500 Noches - Joaquín Sabina',
+  'Y Nos Dieron las Diez - Joaquín Sabina',
+  'Noches de Boda - Joaquín Sabina',
+  'Soy un Truhán, Soy un Señor - Julio Iglesias',
+  'Pacto Entre Caballeros - Joaquín Sabina',
 ];
 
 export const SONG_IDS: string[] = [
   '0mGvaKpwLYoybnIoboC3uS',
   '3Th2of8xIYyImVLXUbzaTp',
   '2f0Ft2XdvNSMSY5TUlZgEz',
-  '1mlGScrDQqHqmhdIqE8MmA',
+  //'1mlGScrDQqHqmhdIqE8MmA',
   '4JOsL8WntMIwDeNQlKAwdA',
   '0GzQB5WXavUEU8tfTCAd8m',
   '2JPLbjOn0wPCngEot2STUS',
-  '0eVborSuxUeSg0meWYd9dZ', // s
-  '5HFvuMLMgS75OaY3UKzqqs',
-  '5IU4JO2cpa0wPK8oQWFfCr',
   '6HB8EOChKaIJSoSZbpJacU',
   '6yCjU5j6YHbux2VQCBTTE1',
   '3NolL8Ds5qRrYQSVUBKicn',
@@ -51,6 +56,8 @@ export const SONG_IDS: string[] = [
   '419w8oZaqevgyZfdvFZEHa',
   '1VB4sadHjFcFklHcZuoROi',
   '0DXI6c9tNWsI4tvUftkQN8',
+  '0eVborSuxUeSg0meWYd9dZ', // s
+  '4BtggpHp17Ak3RP0LITrue', // s
   '5OaqffbeQyVVqtnA71Ci7K',
   '2LsbizbOeNa4x6qsi2jAMb',
   '7gD2QkknRa4ZvlRVyU6ZO0',
@@ -58,8 +65,17 @@ export const SONG_IDS: string[] = [
   '78GUxsLIyH3ZohwhNCTKES',
   '5HSpMRUC4m3L3q48to2Kmu',
   '0wQCKR9OFjYu5Kzrk7WivJ',
+  '41JrRedwrJxbBPwI8Qku04',
   '1aZc9YBrZpKCE1YqSMV5Vg',
+  '5HFvuMLMgS75OaY3UKzqqs',
+  '5IU4JO2cpa0wPK8oQWFfCr',
   '020Gj87SqDRvzGHELzcCEc',
   '7FXZbH91wnIsipIl6LDwkU',
-  '4BtggpHp17Ak3RP0LITrue',
+  '13nyc1sxYqFDmaGyr1bmYP',
+  '0ikKymkbnJhV0S01mfH2El',
+  '7Bewui7KtaMzROeteRitRz',
+  '4Kii4OhkRIezu0KjOiFq0G',
+  '1eCie6lwjb4crxeAvkRaSi',
+  '0FfxAxOlgIUaemwaesR0V4',
+  '3R8rzNolKgeMo3MQhYFBgu',
 ];

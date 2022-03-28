@@ -1,7 +1,15 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { SpotifyService } from 'src/app/core/services/spotify-service.service';
 import { Song } from 'src/app/core/models/song.model';
-import { debounceTime, distinctUntilChanged, Observable, of, Subject, switchMap } from 'rxjs';
+import {
+  debounceTime,
+  distinctUntilChanged,
+  filter,
+  Observable,
+  of,
+  Subject,
+  switchMap,
+} from 'rxjs';
 import { SONG_NAMES } from 'src/app/core/constants/songs.conts';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/shared/dialog/dialog.component';
@@ -75,11 +83,12 @@ export class MainPageComponent implements OnInit {
     this.initialize();
     this.searchResults$ = this.searchTerms.pipe(
       debounceTime(300),
+      filter(term => !term || term.length > 2),
       distinctUntilChanged(),
       switchMap((term: string) => {
         return of(SONG_NAMES.filter((songName: string) => {
-          return term.trim() && songName.toLowerCase().includes(term.toLocaleLowerCase());
-        }).slice(0, 5));
+          return term.trim() && songName.toLocaleLowerCase().includes(term.toLocaleLowerCase());
+        }).slice(0, 3));
       }),
     );
   }
@@ -158,7 +167,6 @@ export class MainPageComponent implements OnInit {
 
   public setValue(songName: string) {
     this.searchTerm = songName;
-    this.searchTerms.next('');
   }
 
   public submitTry(): void {
@@ -166,6 +174,8 @@ export class MainPageComponent implements OnInit {
       return;
     }
 
+    console.log(this.searchTerm.trim().toLocaleLowerCase());
+    console.log(this.daySong?.name.trim().toLocaleLowerCase());
     if (
       this.searchTerm.trim().toLocaleLowerCase() === this.daySong?.name.trim().toLocaleLowerCase()
     ) {
@@ -174,7 +184,6 @@ export class MainPageComponent implements OnInit {
         text: this.searchTerm,
       };
       this.finished = true;
-      this.saveWin();
     } else {
       this.tries[this.tryNumber++] = {
         emoji: '❌',
@@ -183,11 +192,13 @@ export class MainPageComponent implements OnInit {
     }
 
     this.searchTerm = '';
+    this.searchTerms.next('');
     if (this.tryNumber >= this.MAX_TRIES) {
       this.finished = true;
     }
 
     if (this.finished && this.audio) {
+      this.saveResult()
       this.audio.currentTime = 0;
       this.audio.play();
       this.playing = true;
@@ -201,7 +212,9 @@ export class MainPageComponent implements OnInit {
       new Date().toLocaleDateString()
     }\n\n🔈${ emojis }\n\nhttps://oidle.app`;
 
-    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent)
+    ){
       (window.navigator as any).share({text});
       return
     }
@@ -223,7 +236,7 @@ export class MainPageComponent implements OnInit {
     );
   }
 
-  private saveWin(): void {
+  private saveResult(): void {
     if (!this.daySong) {
       return;
     }
