@@ -6,9 +6,6 @@ import { Song } from 'src/app/core/models/song.model';
 })
 export class DataService {
 
-  constructor() {
-  }
-
   public isFirstTime(): boolean {
     return !localStorage.getItem('firstTime');
   }
@@ -39,7 +36,6 @@ export class DataService {
       return null;
     }
     const userHistory = JSON.parse(userHistoryLocal);
-    console.log(userHistory);
     return userHistory.find((history: any) => history.date === dateString);
   }
 }

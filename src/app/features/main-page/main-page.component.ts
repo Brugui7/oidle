@@ -1,6 +1,4 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { SpotifyService } from 'src/app/core/services/spotify-service.service';
-import { Song } from 'src/app/core/models/song.model';
 import {
   debounceTime,
   distinctUntilChanged,
@@ -11,16 +9,13 @@ import {
   switchMap,
 } from 'rxjs';
 import { SONG_NAMES } from 'src/app/core/constants/songs.conts';
-import { MatDialog } from '@angular/material/dialog';
-import { DialogComponent } from 'src/app/shared/dialog/dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { DataService } from 'src/app/core/services/data.service';
-import { Banner } from 'src/app/core/models/banner.model';
+import { DataService, Banner, UserTry, Song, SpotifyService } from 'src/app/core/public-api';
 
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
-  styleUrls: [ './main-page.component.scss' ],
+  styleUrls: [ './main-page.component.scss' ]
 })
 export class MainPageComponent implements OnInit {
 
@@ -38,7 +33,7 @@ export class MainPageComponent implements OnInit {
   public finished = false;
   public playing = false;
   public banner: Banner;
-  public tries = [
+  public tries: UserTry[] = [
     {
       emoji: '',
       text: '',
@@ -71,12 +66,13 @@ export class MainPageComponent implements OnInit {
     private _snackBar: MatSnackBar,
     public dataService: DataService,
   ) {
+    //TODO: TO env variables
     this.banner = new Banner(
       'ca-pub-8403162055734795',
       8223140182,
       'auto',
-      true
-    )
+      true,
+    );
   }
 
   ngOnInit(): void {
@@ -198,7 +194,7 @@ export class MainPageComponent implements OnInit {
     }
 
     if (this.finished && this.audio) {
-      this.saveResult()
+      this.saveResult();
       this.audio.currentTime = 0;
       this.audio.play();
       this.playing = true;
@@ -212,11 +208,11 @@ export class MainPageComponent implements OnInit {
       new Date().toLocaleDateString()
     }\n\n🔈${ emojis }\n\nhttps://oidle.app`;
 
-    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
       navigator.userAgent)
-    ){
+    ) {
       (window.navigator as any).share({text});
-      return
+      return;
     }
 
     const selBox = document.createElement('textarea');
@@ -232,7 +228,7 @@ export class MainPageComponent implements OnInit {
     document.body.removeChild(selBox);
     this._snackBar.open(
       'Copiado al portapapeles ✔️',
-      'Cerrar'
+      'Cerrar',
     );
   }
 
