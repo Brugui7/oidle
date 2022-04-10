@@ -51,6 +51,35 @@ export const SONG_NAMES: string[] = [
   'Noche De Halloween - Saurom',
   'El Hada & La Luna - Saurom',
   'Soñando Contigo (Las Caricias Del Alma) - Saurom',
+
+  
+  'Destino o casualidad - Melendi',
+  'La promesa - Melendi',
+  'Caminando por la vida - Melendi',
+  'El Vals del Obrero - Ska-P',
+  'Cannabis - Ska-P',
+  'Besos - El Canto Del Loco',
+  'En Que Estrella Estara - Nena Daconte',
+  'Disparé - Nena Daconte',
+  'Por quererte - Efecto Mariposa',
+  'No me crees - Efecto Mariposa',
+  'El Mundo (Il Mondo) - Efecto Mariposa',
+  'Colgando en tus manos (con Marta Sánchez) - Carlos Baute',
+  'Te regalo - Carlos Baute',
+  'Quién te quiere como yo - Carlos Baute',
+  'Candy - Plan B',
+  'Mi Estrella Blanca - Fondo Flamenco',
+  'Escuchame Mujer - Fondo Flamenco',
+  'Dos Hombres Y Un Destino - Bustamante',
+  'Devuelveme La Vida - Bustamante',
+  'Feliz - Bustamante',
+  'Buleria - David Bisbal',
+  'Lloraré Las Penas - David Bisbal',
+  'Mi gran noche - Raphael',
+  'Como yo te amo - Raphael',
+  'Escándalo - Raphael',
+  'Opa Yo Viaze Un Corra - El Koala',
+
 ];
 
 export const SONG_IDS: string[] = [
@@ -87,23 +116,49 @@ export const SONG_IDS: string[] = [
   '1aZc9YBrZpKCE1YqSMV5Vg',
   '41JrRedwrJxbBPwI8Qku04',
   '020Gj87SqDRvzGHELzcCEc',
+  '2N1u2w7dbHt058hi7pIFjW', // Como yo te amo - Raphael
   '1PeymV5oAghrPOA4vWdYf5', // El Hada & La Luna - Saurom
-  '13nyc1sxYqFDmaGyr1bmYP',
   '0ikKymkbnJhV0S01mfH2El',
   '1jJn6iK6o2Vg7iUKHztRTk', // El universo sobre mí - Amaral
-  '4Kii4OhkRIezu0KjOiFq0G',
+  '4n43gABaScqvSEiM8i0kkW', // Devuelveme La Vida - Bustamante
   '1eCie6lwjb4crxeAvkRaSi',
-  '19vhfSUgVJO2enJ6XidUGO', // Molinos De Viento - Mägo de Oz
+  '1LiqxOFY49RDbYwdnncAGx', // No me crees - Efecto Mariposa
+  '7cQ7axcCXsa963OluHTWlS', // Sin ti no soy nada - Amaral
   '0FfxAxOlgIUaemwaesR0V4',
-  '2kZJ5wrpq1gCdHmVEjahoH',
   '2x59pa3xDf8hHZ4N3f5fGQ', // Si te vas... - Extremoduro
-  '30ddpolNHwXlrS5XO8MiiO',
+  '2ctjDCCg1wHoQSjIJ8p6U4', // Candy - Plan B
+  '2s7WJ9IRON5zalNbfFY1xa', // Buleria - David Bisbal
+  '7LOB6BlP57YO1ezKxz5py4', // Noche De Halloween - Saurom
   '4kJP8Z888wREJ8bRMWNMuk', // La vereda de la puerta de atrás - Extremoduro
   '7Bewui7KtaMzROeteRitRz',
-  '7cQ7axcCXsa963OluHTWlS', // Sin ti no soy nada - Amaral
+  '2sMxswHr9wX7kTUHULvJBJ', // Destino o casualidad - Melendi
   '7FXZbH91wnIsipIl6LDwkU',
-  '7M6CFruBrM5x7u0lTMtm6r', // Cómo Te Atreves - Morat
+  '19vhfSUgVJO2enJ6XidUGO', // Molinos De Viento - Mägo de Oz
   '3R8rzNolKgeMo3MQhYFBgu',
-  '7LOB6BlP57YO1ezKxz5py4', // Noche De Halloween - Saurom
+  '15h9quQgltWsgYsdqSyPNb', // Mi Estrella Blanca - Fondo Flamenco
+  '2TMhNVnegm2SMQ6lvhaxdm', // Dos Hombres Y Un Destino - Bustamante
+  '02LY9cHQcP3g9wtDfykKDs', // Lloraré Las Penas - David Bisbal
   '7gD2QkknRa4ZvlRVyU6ZO0',
+  '2GJyBJWPmnM7pK961cB6iV', // La promesa - Melendi
+  '3v1dCP3hk2djfWryqfp7sx', // Caminando por la vida - Melendi
+  '4UjqoyfmarLo3Ub3LE19eC', // El Vals del Obrero - Ska-P
+  '2kZJ5wrpq1gCdHmVEjahoH',
+  '7MKO7rUZzjw8p87zdZDgqa', // Besos - El Canto Del Loco
+  '1msphInQ8bBBQGFZkll7FX', // En Que Estrella Estara - Nena Daconte
+  '5xYERDGlMPxNqMo5czXUfd', // Disparé - Nena Daconte
+  '35rm7tY2YiGG2H4yDbqj87', // Por quererte - Efecto Mariposa
+  '13nyc1sxYqFDmaGyr1bmYP',
+  '78z4nAxGfXqfTITvfRvaur', // El Mundo (Il Mondo) - Efecto Mariposa
+  '4Kii4OhkRIezu0KjOiFq0G',
+  '6Tnnk7MAnZiDx67DJN2hnx', // Mi gran noche - Raphael
+  '6AXCWtG8yPOcsFnKMqPILE', // Escuchame Mujer - Fondo Flamenco
+  '7kT8GFH03WvZmqsGTa9pho', // Quién te quiere como yo - Carlos Baute
+  '0fmgOwkb9AwgzXhYVSZRDs', // Te regalo - Carlos Baute
+  '0DjSa6czo5ywsf6iCtZW5A', // Cannabis - Ska-P
+  '4twEyA6ivTMkCChphUztxX', // Feliz - Bustamante
+  '3UI9I3e1g1y5T3SMfdgfGO', // Colgando en tus manos (con Marta Sánchez) - Carlos Baute
+  '7M6CFruBrM5x7u0lTMtm6r', // Cómo Te Atreves - Morat
+  '30ddpolNHwXlrS5XO8MiiO',
+  '3xbymP6jIcdN0O2PB420bz', // Escándalo - Raphael
+  '29xwXTI483gmpvr6pKSag0', // Opa Yo Viaze Un Corra - El Koala
 ];
