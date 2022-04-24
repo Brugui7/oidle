@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map, Observable, of, tap } from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
 import { Song } from 'src/app/core/models/song.model';
-import { SONG_IDS } from 'src/app/core/constants/songs.conts';
+import { SONG_IDS, STANDARD_SONGS } from 'src/app/core/constants/songs.conts';
 
 @Injectable({
   providedIn: 'root',
@@ -41,8 +41,8 @@ export class SpotifyService {
 
     const body = new URLSearchParams();
     body.set('grant_type', 'client_credentials');
-    body.set('client_id', '6a010a65733d4233ba894f9c34958d83');
-    body.set('client_secret', '76e685e8b7524713982e7112527595fc');
+    body.set('client_id', '');
+    body.set('client_secret', '');
 
     return this.http.post(
       'https://accounts.spotify.com/api/token',
@@ -54,8 +54,8 @@ export class SpotifyService {
   public getSongOfTheDay(): Observable<Song> {
     const today = new Date();
     const dayNumber = Math.round(today.setHours(0, 0, 0, 0) / 864e5);
-    const songID = SONG_IDS[dayNumber % SONG_IDS.length];
-
+    return of(STANDARD_SONGS[dayNumber % SONG_IDS.length]);
+    /*const songID = SONG_IDS[dayNumber % SONG_IDS.length];
     return this.http.get<Song>(
       `https://api.spotify.com/v1/tracks/${ songID }`,
       {
@@ -69,6 +69,6 @@ export class SpotifyService {
         song.name += song.artists && song.artists.length ? ` - ${ song.artists[0].name }` : '';
         return song;
       }),
-    );
+    );*/
   }
 }

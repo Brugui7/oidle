@@ -23,6 +23,7 @@ export class MainPageComponent implements OnInit {
   private audio?: HTMLMediaElement;
   private searchTerms = new Subject<string>();
 
+  public SPOTIFY_URL = 'https://open.spotify.com/track/';
   public MAX_PREVIEW_TIME = 16;
   public MAX_TRIES = 6;
   public daySong?: Song;
@@ -108,10 +109,8 @@ export class MainPageComponent implements OnInit {
   }
 
   private loadSong() {
-    this.spotifyService.login().subscribe(_ => {
-      this.spotifyService.getSongOfTheDay().subscribe((song: Song) => {
-        this.daySong = song;
-      });
+    this.spotifyService.getSongOfTheDay().subscribe((song: Song) => {
+      this.daySong = song;
     });
   }
 

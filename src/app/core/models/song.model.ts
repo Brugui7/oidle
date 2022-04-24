@@ -1,18 +1,19 @@
 export interface Song {
   href: string;
   id: string;
-  is_local: boolean;
+  is_local?: boolean;
   name: string;
-  popularity: number;
+  popularity?: number;
   preview_url: string;
-  track_number: number,
-  type: string,
-  uri: string;
-  artists: Artist[];
-  album: Album;
-  external_urls: {
+  track_number?: number,
+  type?: string,
+  uri?: string;
+  artists?: Artist[];
+  album?: Album;
+  external_urls?: {
     spotify: string;
   }
+  image?: string;
 }
 
 export interface Artist {

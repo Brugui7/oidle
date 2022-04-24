@@ -12,11 +12,16 @@
     <ng-template #finishContainer>
       <div class="finish-container">
         <div class="song-banner">
-          <img [src]="daySong.album.images[2].url" alt="{{daySong.name}} cover">
+          <ng-template *ngIf="daySong.album; else imagePreview">
+            <img [src]="daySong.album.images[2].url" alt="{{daySong.name}} cover">
+          </ng-template>
+          <ng-template #imagePreview>
+            <img [src]="daySong.image" alt="{{daySong.name}} cover">
+          </ng-template>
           <span> {{ daySong.name }}</span>
           <a
             class="a-to-spotify"
-            [href]="daySong.external_urls.spotify" target="_blank"
+            [href]="SPOTIFY_URL + daySong.id" target="_blank"
           >
             👉 Escuchar en Spotify
           </a>
