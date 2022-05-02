@@ -169,8 +169,6 @@ export class MainPageComponent implements OnInit {
       return;
     }
 
-    console.log(this.searchTerm.trim().toLocaleLowerCase());
-    console.log(this.daySong?.name.trim().toLocaleLowerCase());
     if (
       this.searchTerm.trim().toLocaleLowerCase() === this.daySong?.name.trim().toLocaleLowerCase()
     ) {
@@ -210,7 +208,12 @@ export class MainPageComponent implements OnInit {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
       navigator.userAgent)
     ) {
-      (window.navigator as any).share({text});
+      try {
+        (window.navigator as any).share({text});
+      } catch (e) {
+        console.error(e);
+        (window as any).shareHandler.postMessage(text);
+      }
       return;
     }
 
