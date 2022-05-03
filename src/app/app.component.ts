@@ -45,9 +45,7 @@ export class AppComponent implements OnInit {
       data: {
         title: 'SABER MÁS',
         text: 'Este proyecto es un homenaje a Wordle basado en Heardle.' +
-          '\n\nHa sido desarrollado por Brugui (https://brugui.dev) y diseñado por Rul' +
-          '\n\nSi quieres apoyar al mantenimiento del domino puedes hacerlo a través de ' +
-          'https://paypal.me/brugui'
+          '\n\nHa sido desarrollado por Brugui (https://brugui.dev) y diseñado por Rul.'
       },
     });
 
