@@ -33,24 +33,6 @@
   display: flex;
 }
 
-button, input {
-  padding: 0;
-  line-height: inherit;
-  color: inherit;
-}
-
-button, [role="button"] {
-  cursor: pointer;
-}
-button, [type='button'] {
-  -webkit-appearance: button;
-}
-
-button {
-  color: #333;
-  background-color: #f4f4f4;
-  outline: none;
-}
 .search-result {
   padding: 0;
 }

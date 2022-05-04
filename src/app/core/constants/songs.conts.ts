@@ -87,7 +87,6 @@ export const SONG_NAMES: string[] = [
   '1,2,3,4 - javier álvarez',
   'Al Amanecer - Los Fresones Rebeldes',
   'Quiero Verte - Los Sobraos',
-  'La flaca - Jarabe De Palo',
   'La senda del tiempo - Celtas Cortos',
   'En Blanco Y Negro - Barricada',
   'Assumpta - Siniestro Total',
@@ -867,13 +866,6 @@ export const STANDARD_SONGS: Song[] = [
     name: 'Lo Malo - Aitana - Ana Guerra',
     preview_url: 'https://p.scdn.co/mp3-preview/96db777752221fe7b6a48d03cc6a1756952930f5?cid=adaaf209fb064dfab873a71817029e0d',
     image: 'https://i.scdn.co/image/ab67616d00004851c99f58d4685a5f438e6c9167',
-  },
-  {
-    id: '2LsbizbOeNa4x6qsi2jAMb',
-    href: 'https://api.spotify.com/v1/tracks/2LsbizbOeNa4x6qsi2jAMb',
-    name: 'La flaca - Jarabe De Palo',
-    preview_url: 'https://p.scdn.co/mp3-preview/2d0720819a4c5aeab0ef10680312f1602769bd81?cid=adaaf209fb064dfab873a71817029e0d',
-    image: 'https://i.scdn.co/image/ab67616d0000485147a83522c634e84f937a897e',
   },
   {
     id: '0DjSa6czo5ywsf6iCtZW5A',

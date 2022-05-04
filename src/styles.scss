@@ -13,3 +13,24 @@ body {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+button, input {
+  outline: none;
+  background-color: blueviolet;
+  line-height: inherit;
+  border-radius: 3px;
+  padding: 0 0.5em;
+  color: #FFF;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  border: none;
+}
+
+button, [role="button"] {
+  cursor: pointer;
+}
+
+button, [type='button'] {
+  -webkit-appearance: button;
+}
