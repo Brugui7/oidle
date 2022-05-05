@@ -1,16 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-input-result',
   templateUrl: './input-result.component.html',
-  styleUrls: ['./input-result.component.scss']
+  styleUrls: [
+    './input-result.component.scss',
+    './input-result-small.component.scss',
+  ]
 })
-export class InputResultComponent implements OnInit {
+export class InputResultComponent {
   @Input() emoji?: string;
   @Input() text?: string;
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

@@ -3,6 +3,14 @@ p {
 }
 
 .close-button {
-  margin-left: 80%;
   padding: 0.5rem;
+}
+
+.close-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media only screen and (max-width: 500px) {
+
 }

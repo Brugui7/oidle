@@ -15,7 +15,10 @@ import { DataService, Banner, UserTry, Song, SpotifyService } from 'src/app/core
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
-  styleUrls: [ './main-page.component.scss' ]
+  styleUrls: [
+    './main-page.component.scss',
+    './main-page-small.component.scss',
+  ]
 })
 export class MainPageComponent implements OnInit {
 
@@ -241,5 +244,6 @@ export class MainPageComponent implements OnInit {
 
     this.dataService.writeDayResult(this.tries, this.daySong);
   }
+
 
 }

@@ -29,10 +29,6 @@
   align-items: center;
 }
 
-.flex {
-  display: flex;
-}
-
 .search-result {
   padding: 0;
 }
@@ -100,7 +96,7 @@
   background-color: blueviolet;
   color: #FFF;
   font-weight: bold;
-  height: 2.5vh;
+  height: 2.5rem;
   letter-spacing: 1.5px;
   outline: none;
   border: none;
@@ -112,7 +108,7 @@
   border-radius: 3px;
   background-color: blueviolet;
   color: #FFF;
-  height: 2.5vh;
+  height: 2.5rem;
   font-weight: bold;
   letter-spacing: 1.5px;
   outline: none;

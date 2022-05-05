@@ -2,4 +2,9 @@
 <div mat-dialog-content>
   <p>{{data.text}}</p>
 </div>
-<button class="close-button">👍 Cerrar</button>
+<div class="close-button-container">
+  <button
+    (click)="closeDialog()"
+    class="close-button"
+  >👍 Cerrar</button>
+</div>
