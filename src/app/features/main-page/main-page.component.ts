@@ -70,6 +70,7 @@ export class MainPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.dataService.getStats());
     this.initialize();
     this.searchResults$ = this.searchTerms.pipe(
       debounceTime(300),
