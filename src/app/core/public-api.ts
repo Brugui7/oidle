@@ -2,7 +2,7 @@
 export * from './models/banner.model';
 export * from './models/song.model';
 export * from './models/user-try.model';
-export * from './models/data.model'
+export * from 'src/app/core/models/day-result.model'
 
 // Services
 export * from './services/data.service';

@@ -1,5 +1,6 @@
-export enum UserTryEmoji {
+export enum Emoji {
   success = '✔️',
   fail = '❌',
-  skip = '⏩'
+  skip = '⏩',
+  ok = '👍'
 }

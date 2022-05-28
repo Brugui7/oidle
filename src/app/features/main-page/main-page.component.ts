@@ -10,7 +10,14 @@ import {
 } from 'rxjs';
 import { SONG_NAMES } from 'src/app/core/constants/songs.conts';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { DataService, Banner, UserTry, Song, SpotifyService } from 'src/app/core/public-api';
+import {
+  Banner,
+  DataService,
+  Emoji,
+  Song,
+  SpotifyService,
+  UserTry,
+} from 'src/app/core/public-api';
 
 @Component({
   selector: 'app-main-page',
@@ -38,31 +45,14 @@ export class MainPageComponent implements OnInit {
   public playing = false;
   public banner: Banner;
   public tries: UserTry[] = [
-    {
-      emoji: '',
-      text: '',
-    },
-    {
-      emoji: '',
-      text: '',
-    },
-    {
-      emoji: '',
-      text: '',
-    },
-    {
-      emoji: '',
-      text: '',
-    },
-    {
-      emoji: '',
-      text: '',
-    },
-    {
-      emoji: '',
-      text: '',
-    },
+    {text: ''},
+    {text: ''},
+    {text: ''},
+    {text: ''},
+    {text: ''},
+    {text: ''},
   ];
+
   public tryNumber = 0;
 
   constructor(
@@ -150,12 +140,13 @@ export class MainPageComponent implements OnInit {
     this.previewTimeSeconds += this.nextSkipSeconds++;
 
     this.tries[this.tryNumber++] = {
-      emoji: '⏩',
+      emoji: Emoji.skip,
       text: 'AMPLIACIÓN',
     };
 
     if (this.tryNumber >= this.MAX_TRIES) {
       this.finished = true;
+      this.saveResult();
     }
   }
 
@@ -175,14 +166,16 @@ export class MainPageComponent implements OnInit {
     if (
       this.searchTerm.trim().toLocaleLowerCase() === this.daySong?.name.trim().toLocaleLowerCase()
     ) {
+
       this.tries[this.tryNumber++] = {
-        emoji: '✔️',
+        emoji: Emoji.success,
         text: this.searchTerm,
       };
       this.finished = true;
+
     } else {
       this.tries[this.tryNumber++] = {
-        emoji: '❌',
+        emoji: Emoji.fail,
         text: this.searchTerm,
       };
     }

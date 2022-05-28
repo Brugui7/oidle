@@ -1,3 +1,4 @@
+<script src="../../core/enums/user-try-emoji.enum.ts"></script>
 <div class="main-page-container">
   <div class="main-page-container-wrapper" *ngIf="daySong; else loading">
 
@@ -66,10 +67,11 @@
         </ng-template>
       </button>
 
-      <div class="search-container">
+      <div class="search-container"
+           [hidden]="finished"
+      >
         <div class="input-search-container">
           <input
-            [disabled]="finished"
             placeholder="🔎 ¿La conoces? Filtra por el título / artista"
 						#searchBox
             id="searchBox"
@@ -90,7 +92,7 @@
       <div class="buttons-container">
         <button
           (click)="addPreviewTime()"
-          [disabled]="finished"
+          [hidden]="finished"
           class="skip-button"
         >
           AMPLIAR
@@ -102,7 +104,7 @@
         <button
           class="submit-button"
           (click)="submitTry()"
-          [disabled]="tryNumber >= MAX_TRIES"
+          [hidden]="finished"
         >
           ENVIAR
         </button>
