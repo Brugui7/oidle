@@ -18,6 +18,7 @@ import {
   SpotifyService,
   UserTry,
 } from 'src/app/core/public-api';
+import { MAX_TRIES } from 'src/app/core/constants/common.consts';
 
 @Component({
   selector: 'app-main-page',
@@ -35,7 +36,6 @@ export class MainPageComponent implements OnInit {
 
   public SPOTIFY_URL = 'https://open.spotify.com/track/';
   public MAX_PREVIEW_TIME = 16;
-  public MAX_TRIES = 6;
   public daySong?: Song;
   public nextSkipSeconds: number = 1;
   public previewTimeSeconds = 1;
@@ -70,7 +70,6 @@ export class MainPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.dataService.getStats());
     this.initialize();
     this.searchResults$ = this.searchTerms.pipe(
       debounceTime(300),
@@ -145,7 +144,7 @@ export class MainPageComponent implements OnInit {
       text: 'AMPLIACIÓN',
     };
 
-    if (this.tryNumber >= this.MAX_TRIES) {
+    if (this.tryNumber >= MAX_TRIES) {
       this.finished = true;
       this.saveResult();
     }
@@ -183,7 +182,7 @@ export class MainPageComponent implements OnInit {
 
     this.searchTerm = '';
     this.searchTerms.next('');
-    if (this.tryNumber >= this.MAX_TRIES) {
+    if (this.tryNumber >= MAX_TRIES) {
       this.finished = true;
     }
 

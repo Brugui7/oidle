@@ -1,0 +1,44 @@
+<div class="stats-header">
+  <mat-icon
+    class="close-dialog-icon"
+    (click)="closeDialog()"
+    aria-hidden="false"
+    aria-label="Help"
+  >close</mat-icon>
+  <span>Tus estadísticas</span>
+</div>
+
+<div *ngIf="stats" class="stats-container">
+  <div *ngIf="triesByGameChartData">
+    <h3>Intentos por partida</h3>
+    <div class="chart-container">
+      <ngx-charts-bar-vertical
+        [scheme]="triesByGameChartData.colorScheme"
+        [results]="triesByGameChartData.data"
+        [gradient]="triesByGameChartData.gradient"
+        [xAxis]="triesByGameChartData.showXAxis"
+        [yAxis]="triesByGameChartData.showYAxis"
+        [legend]="triesByGameChartData.showLegend"
+        [showXAxisLabel]="triesByGameChartData.showXAxisLabel"
+        [showGridLines]="triesByGameChartData.showGridLines"
+        [showYAxisLabel]="triesByGameChartData.showYAxisLabel"
+        [xAxisLabel]="triesByGameChartData.xAxisLabel"
+        [yAxisLabel]="triesByGameChartData.yAxisLabel"
+      ></ngx-charts-bar-vertical>
+    </div>
+  </div>
+  <div class="insights-grid">
+    <div>
+      <span>Partidas jugadas</span>
+      <h2>{{ stats.totalPlayed }}</h2>
+    </div>
+    <div>
+      <span>Partidas ganadas</span>
+      <h2>{{ stats.totalWon }}</h2>
+    </div>
+    <div>
+      <span>Partidas Perdidas</span>
+      <h2>{{ stats.totalPlayed - stats.totalWon }}</h2>
+    </div>
+  </div>
+</div>

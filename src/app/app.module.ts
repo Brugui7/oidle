@@ -13,6 +13,8 @@ import { DialogComponent } from './shared/dialog/dialog.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { BannerComponent } from './shared/banner/banner.component';
+import { StatsDialogComponent } from './features/stats-dialog/stats-dialog.component';
+import { BarChartModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { BannerComponent } from './shared/banner/banner.component';
     MainPageComponent,
     InputResultComponent,
     DialogComponent,
-    BannerComponent
+    BannerComponent,
+    StatsDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { BannerComponent } from './shared/banner/banner.component';
     NoopAnimationsModule,
     MatIconModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    BarChartModule,
   ],
   providers: [HttpClientModule, MatDialogModule, MatSnackBarModule],
   bootstrap: [AppComponent]

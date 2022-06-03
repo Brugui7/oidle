@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DialogComponent } from 'src/app/shared/dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { DataService } from './core/services/data.service';
+import { StatsDialogComponent } from './features/stats-dialog/stats-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +25,7 @@ export class AppComponent implements OnInit {
   }
 
   public openHelpDialog(): void {
-    const dialogRef = this.dialog.open(DialogComponent, {
+    this.dialog.open(DialogComponent, {
       data: {
         title: '¿CÓMO SE JUEGA?',
         text: '🎧 Escucha parte de la canción, después encuentra el artista y título filtrando' +
@@ -34,23 +35,19 @@ export class AppComponent implements OnInit {
           '\n\n☀️ Entra cada día para una nueva canción'
       },
     });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
   }
 
   public openInfoDialog(): void {
-    const dialogRef = this.dialog.open(DialogComponent, {
+    this.dialog.open(DialogComponent, {
       data: {
         title: 'SABER MÁS',
         text: 'Este proyecto es un homenaje a Wordle basado en Heardle.' +
           '\n\nHa sido desarrollado por Brugui (https://brugui.dev) y diseñado por Rul.'
       },
     });
+  }
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+  public openStatsDialog(): void {
+    this.dialog.open(StatsDialogComponent);
   }
 }
