@@ -3,9 +3,10 @@ import { Song } from 'src/app/core/models/song.model';
 import { UserTry } from 'src/app/core/models/user-try.model';
 import { DayResult, Emoji } from '../public-api';
 import { Stats } from 'src/app/core/models/stats.model';
+import { Version } from 'src/app/core/enums/versions';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DataService {
 
@@ -14,11 +15,12 @@ export class DataService {
   }
 
   public setFirstTime(firstTime: boolean): void {
-    localStorage.setItem('firstTime', `${firstTime}`);
+    localStorage.setItem('firstTime', `${ firstTime }`);
   }
 
-  public writeDayResult(tries: UserTry[], song: Song): void {
-    const userHistoryLocal = localStorage.getItem('userHistory');
+  public writeDayResult(tries: UserTry[], song: Song, version: Version): void {
+    const historyKey = version === Version.standard ? 'userHistory' : version;
+    const userHistoryLocal = localStorage.getItem(historyKey);
     let userHistory = [];
     if (!!userHistoryLocal) {
       userHistory = JSON.parse(userHistoryLocal);
@@ -27,19 +29,21 @@ export class DataService {
     userHistory.push({
       date: new Date().toLocaleDateString(),
       tries,
-      song
+      song,
     });
 
-    localStorage.setItem('userHistory', JSON.stringify(userHistory));
+    localStorage.setItem(historyKey, JSON.stringify(userHistory));
   }
 
-  public getResultByDate(dateString: string): DayResult | null {
-    const userHistoryLocal = localStorage.getItem('userHistory');
+  public getResultByDate(dateString: string, version: Version): DayResult | null {
+    const historyKey = version === Version.standard ? 'userHistory' : version;
+
+    const userHistoryLocal = localStorage.getItem(historyKey);
     if (!userHistoryLocal) {
       return null;
     }
-    const userHistory = JSON.parse(userHistoryLocal);
-    return userHistory.find((history: any) => history.date === dateString);
+
+    return JSON.parse(userHistoryLocal).find((history: any) => history.date === dateString);
   }
 
   public getStats(): Stats | null {
@@ -52,7 +56,7 @@ export class DataService {
     const stats: Stats = {
       totalPlayed: 0,
       totalWon: 0,
-      triesByGames: new Map<number, number>()
+      triesByGames: new Map<number, number>(),
     };
 
     userHistory.forEach((dayResult, idx) => {

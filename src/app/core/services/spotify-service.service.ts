@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of, tap } from 'rxjs';
 import { Song } from 'src/app/core/models/song.model';
-import { SONG_IDS, STANDARD_SONGS } from 'src/app/core/constants/songs.conts';
 
 @Injectable({
   providedIn: 'root',
@@ -51,24 +50,9 @@ export class SpotifyService {
     )
   }
 
-  public getSongOfTheDay(): Observable<Song> {
+  public getSongOfTheDay(songs: Song[]): Observable<Song> {
     const today = new Date();
     const dayNumber = Math.round(today.setHours(0, 0, 0, 0) / 864e5);
-    return of(STANDARD_SONGS[dayNumber % SONG_IDS.length]);
-    /*const songID = SONG_IDS[dayNumber % SONG_IDS.length];
-    return this.http.get<Song>(
-      `https://api.spotify.com/v1/tracks/${ songID }`,
-      {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${this.accessToken}`,
-        }),
-      },
-    ).pipe(
-      map(song => {
-        song.name += song.artists && song.artists.length ? ` - ${ song.artists[0].name }` : '';
-        return song;
-      }),
-    );*/
+    return of(songs[dayNumber % songs.length]);
   }
 }

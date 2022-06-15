@@ -8,7 +8,6 @@ import {
   Subject,
   switchMap,
 } from 'rxjs';
-import { SONG_NAMES } from 'src/app/core/constants/songs.conts';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {
   Banner,
@@ -19,6 +18,9 @@ import {
   UserTry,
 } from 'src/app/core/public-api';
 import { MAX_TRIES } from 'src/app/core/constants/common.consts';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NAMES_BY_VERSIONS, SONGS_BY_VERSIONS } from 'src/app/core/constants/versions';
+import { Version } from 'src/app/core/enums/versions';
 
 @Component({
   selector: 'app-main-page',
@@ -33,6 +35,9 @@ export class MainPageComponent implements OnInit {
   @ViewChild('audioElement', {static: false}) public _audioRef?: ElementRef;
   private audio?: HTMLMediaElement;
   private searchTerms = new Subject<string>();
+  private namesArray = [];
+  private songsArray = [];
+  private version: Version = Version.standard;
 
   public SPOTIFY_URL = 'https://open.spotify.com/track/';
   public MAX_PREVIEW_TIME = 16;
@@ -58,8 +63,21 @@ export class MainPageComponent implements OnInit {
   constructor(
     private spotifyService: SpotifyService,
     private _snackBar: MatSnackBar,
-    public dataService: DataService,
+    private dataService: DataService,
+    private route: ActivatedRoute,
+    private router: Router,
   ) {
+
+    const version = (this.route.snapshot.params['version'] ?? '').toUpperCase();
+    if (!SONGS_BY_VERSIONS[version]) {
+      this.router.navigate(['']);
+    }
+
+    this.version = version as Version;
+
+    this.namesArray = NAMES_BY_VERSIONS[this.version];
+    this.songsArray = SONGS_BY_VERSIONS[this.version]
+
     //TODO: TO env variables
     this.banner = new Banner(
       'ca-pub-8403162055734795',
@@ -76,7 +94,7 @@ export class MainPageComponent implements OnInit {
       filter(term => !term || term.length > 2),
       distinctUntilChanged(),
       switchMap((term: string) => {
-        return of(SONG_NAMES.filter((songName: string) => {
+        return of(this.namesArray.filter((songName: string) => {
           return term.trim() && songName.toLocaleLowerCase().includes(term.toLocaleLowerCase());
         }).slice(0, 3));
       }),
@@ -89,7 +107,7 @@ export class MainPageComponent implements OnInit {
 
   private initialize() {
     const today = new Date().toLocaleDateString();
-    const todayResult = this.dataService.getResultByDate(today);
+    const todayResult = this.dataService.getResultByDate(today, this.version);
     if (!!todayResult) {
       this.daySong = todayResult.song;
       this.tries = todayResult.tries;
@@ -102,7 +120,7 @@ export class MainPageComponent implements OnInit {
   }
 
   private loadSong() {
-    this.spotifyService.getSongOfTheDay().subscribe((song: Song) => {
+    this.spotifyService.getSongOfTheDay(this.songsArray).subscribe((song: Song) => {
       this.daySong = song;
     });
   }
@@ -235,7 +253,7 @@ export class MainPageComponent implements OnInit {
       return;
     }
 
-    this.dataService.writeDayResult(this.tries, this.daySong);
+    this.dataService.writeDayResult(this.tries, this.daySong, this.version);
   }
 
 
