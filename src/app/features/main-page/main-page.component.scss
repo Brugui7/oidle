@@ -166,9 +166,14 @@ input {
   padding: 0.5em;
 }
 
+.album-cover {
+  margin-right: .5em;
+}
+
 .a-to-spotify {
   text-decoration: none;
   color: #52cba2;
+  text-align: center;
 }
 
 .finish-container {
@@ -201,5 +206,6 @@ input {
 .share-button-container {
   display: flex;
   justify-content: center;
+  margin-bottom: .5em;
 }
 

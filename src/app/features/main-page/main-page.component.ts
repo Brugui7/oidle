@@ -21,6 +21,10 @@ import { MAX_TRIES } from 'src/app/core/constants/common.consts';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NAMES_BY_VERSIONS, SONGS_BY_VERSIONS } from 'src/app/core/constants/versions';
 import { Version } from 'src/app/core/enums/versions';
+import {
+  VersionsSelectorComponent
+} from 'src/app/features/versions-selector/versions-selector.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-main-page',
@@ -66,6 +70,7 @@ export class MainPageComponent implements OnInit {
     private dataService: DataService,
     private route: ActivatedRoute,
     private router: Router,
+    private dialog: MatDialog,
   ) {
 
     const version = (this.route.snapshot.params['version'] ?? '').toUpperCase();
@@ -257,4 +262,7 @@ export class MainPageComponent implements OnInit {
   }
 
 
+  public openVersionsDialog(): void {
+    this.dialog.open(VersionsSelectorComponent);
+  }
 }

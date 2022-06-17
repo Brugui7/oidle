@@ -14,8 +14,8 @@ export class AppComponent implements OnInit {
   title = 'oidle';
 
   constructor(
-    public dialog: MatDialog,
-    public dataService: DataService
+    private dialog: MatDialog,
+    private dataService: DataService
   ) {}
 
   ngOnInit(): void {

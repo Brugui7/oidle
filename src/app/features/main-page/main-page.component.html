@@ -17,7 +17,7 @@
             <img [src]="daySong.album.images[2].url" alt="{{daySong.name}} cover">
           </ng-template>
           <ng-template #imagePreview>
-            <img [src]="daySong.image" alt="{{daySong.name}} cover">
+            <img [src]="daySong.image" alt="{{daySong.name}} cover" class="album-cover">
           </ng-template>
           <span> {{ daySong.name }}</span>
           <a
@@ -47,6 +47,11 @@
             COMPARTIR
             <mat-icon>share</mat-icon>
           </button>
+        </div>
+
+        <div class="text-center">
+          Ahora puedes jugar a
+          <span (click)="openVersionsDialog()" class="link">otras versiones</span>
         </div>
         <app-banner
           [banner]="banner"
