@@ -37,18 +37,18 @@
   position: relative;
   cursor: pointer;
   text-decoration: none;
-  height: 1.6em;
+  min-height: 1.6em;
   border-radius: 4px;
   width: 100%;
-  margin: 0;
-  padding: 0.3em 0;
+  padding: 0.3em;
   display: flex;
   align-items: center;
   background-color: #5e5d5d7a;
   justify-content: center;
   color: #FFF;
   letter-spacing: 1.5px;
-  margin-top: 2px;
+  margin-top: 0.6em;
+  line-height: 1.4em;
 }
 
 .search-container li:hover {

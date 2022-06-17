@@ -3,6 +3,7 @@ import { DialogComponent } from 'src/app/shared/dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { DataService } from './core/services/data.service';
 import { StatsDialogComponent } from './features/stats-dialog/stats-dialog.component';
+import { VersionsSelectorComponent } from './features/versions-selector/versions-selector.component';
 
 @Component({
   selector: 'app-root',
@@ -45,6 +46,10 @@ export class AppComponent implements OnInit {
           '\n\nHa sido desarrollado por Brugui (https://brugui.dev) y diseñado por Rul.'
       },
     });
+  }
+
+  public openVersionsDialog(): void {
+    this.dialog.open(VersionsSelectorComponent);
   }
 
   public openStatsDialog(): void {

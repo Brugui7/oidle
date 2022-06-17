@@ -1,13 +1,16 @@
 <ul>
+  <li class="pointer" (click)="openVersionsDialog()">
+    <mat-icon aria-hidden="false" aria-label="Versiones">menu</mat-icon>
+  </li>
   <li class="pointer" (click)="openInfoDialog()">
-    <mat-icon aria-hidden="false" aria-label="Information">info</mat-icon>
+    <mat-icon aria-hidden="false" aria-label="Información">info</mat-icon>
   </li>
   <li class="app-name">OIDLE</li>
   <li class="pointer" (click)="openHelpDialog()" >
-    <mat-icon aria-hidden="false" aria-label="Help">question_mark</mat-icon>
+    <mat-icon aria-hidden="false" aria-label="Ayuda">question_mark</mat-icon>
   </li>
   <li class="pointer" (click)="openStatsDialog()" >
-    <mat-icon aria-hidden="false" aria-label="Stats">bar_chart</mat-icon>
+    <mat-icon aria-hidden="false" aria-label="Estadísticas">bar_chart</mat-icon>
   </li>
 </ul>
 <router-outlet></router-outlet>

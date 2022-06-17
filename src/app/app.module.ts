@@ -15,6 +15,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { BannerComponent } from './shared/banner/banner.component';
 import { StatsDialogComponent } from './features/stats-dialog/stats-dialog.component';
 import { BarChartModule } from '@swimlane/ngx-charts';
+import { VersionsSelectorComponent } from './features/versions-selector/versions-selector.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { BarChartModule } from '@swimlane/ngx-charts';
     InputResultComponent,
     DialogComponent,
     BannerComponent,
-    StatsDialogComponent
+    StatsDialogComponent,
+    VersionsSelectorComponent
   ],
   imports: [
     BrowserModule,

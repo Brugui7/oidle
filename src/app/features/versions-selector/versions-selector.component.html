@@ -1,0 +1,22 @@
+<div class="dialog-header">
+  <mat-icon
+    class="close-dialog-icon"
+    aria-hidden="false"
+    aria-label="Help"
+  >close</mat-icon>
+  <span>Otras versiones</span>
+</div>
+
+<div>
+  <h3>Juega otras versiones de OIDLE</h3>
+  <div class="versions-grid">
+    <div
+      *ngFor="let version of versions" (click)="goToVersion(version)"
+      class="version-option"
+    >
+      <h3>
+        {{version  === '' ? 'Estándar' : version | titlecase}}
+      </h3>
+    </div>
+  </div>
+</div>
