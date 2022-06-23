@@ -100,7 +100,7 @@ export class MainPageComponent implements OnInit {
       distinctUntilChanged(),
       switchMap((term: string) => {
         return of(this.namesArray.filter((songName: string) => {
-          return term.trim() && songName.toLocaleLowerCase().includes(term.toLocaleLowerCase());
+          return term.trim() && this.normalize(songName).includes(this.normalize(term));
         }).slice(0, 3));
       }),
     );
@@ -261,8 +261,11 @@ export class MainPageComponent implements OnInit {
     this.dataService.writeDayResult(this.tries, this.daySong, this.version);
   }
 
-
   public openVersionsDialog(): void {
     this.dialog.open(VersionsSelectorComponent);
+  }
+
+  private normalize(text: string): string {
+    return text.trim().toLocaleLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, "");
   }
 }

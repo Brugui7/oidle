@@ -426,13 +426,6 @@ export const DISNEY_SONGS: Song[] = [
     image: 'https://i.scdn.co/image/ab67616d00004851bd93fb78e9cc2fccd30e6e2d'
   },
   {
-    id: '1kIKCaRH85flXDJUKoxlUJ',
-    href: 'https://api.spotify.com/v1/tracks/1kIKCaRH85flXDJUKoxlUJ',
-    name: 'De cero a héroe - Susan Martín - Helen Quiroga - Paula Bas - Cani González - María Caneda - Hercules Original Soundtrack',
-    preview_url: 'https://p.scdn.co/mp3-preview/757ca099155f7347743a39f7e7c05038c256c3ec?cid=adaaf209fb064dfab873a71817029e0d',
-    image: 'https://i.scdn.co/image/ab67616d000048512d0c4b0d7da7547164c1ce39'
-  },
-  {
     id: '2dejFWIMzv48YTSbdVfby7',
     href: 'https://api.spotify.com/v1/tracks/2dejFWIMzv48YTSbdVfby7',
     name: 'Canción de Meg - Susan Martín - Helen Quiroga - Paula Bas - Cani González - María Caneda - Celia Vergara - Disney Princess',
@@ -487,6 +480,13 @@ export const DISNEY_SONGS: Song[] = [
     name: 'Solo Tiene Que Mejorar un Poco (Canción de los Troles) - Cast - Frozen - Frozen: El Reino del Hielo (Banda Sonora Original)',
     preview_url: 'https://p.scdn.co/mp3-preview/62054a455dc76fe98c6b4306e6c605365fe335f1?cid=adaaf209fb064dfab873a71817029e0d',
     image: 'https://i.scdn.co/image/ab67616d000048518b742b2c2d81082f834a333f'
+  },
+  {
+    id: '1kIKCaRH85flXDJUKoxlUJ',
+    href: 'https://api.spotify.com/v1/tracks/1kIKCaRH85flXDJUKoxlUJ',
+    name: 'De cero a héroe - Susan Martín - Helen Quiroga - Paula Bas - Cani González - María Caneda - Hercules Original Soundtrack',
+    preview_url: 'https://p.scdn.co/mp3-preview/757ca099155f7347743a39f7e7c05038c256c3ec?cid=adaaf209fb064dfab873a71817029e0d',
+    image: 'https://i.scdn.co/image/ab67616d000048512d0c4b0d7da7547164c1ce39'
   },
   {
     id: '45cku3eLTd5hObrNM8q8PA',
