@@ -482,6 +482,13 @@ export const DISNEY_SONGS: Song[] = [
     image: 'https://i.scdn.co/image/ab67616d000048518b742b2c2d81082f834a333f'
   },
   {
+    id: '3HLo3xvKkAdIhPjHpi9kb5',
+    href: 'https://api.spotify.com/v1/tracks/3HLo3xvKkAdIhPjHpi9kb5',
+    name: "Un nuevo hogar - Tony Menguiano - Opetaia Foa'i - Vaiana (Banda Sonora Original en Castellano)",
+    preview_url: 'https://p.scdn.co/mp3-preview/bc0b941173859c0261bc1b31ebee0f73bc950be2?cid=adaaf209fb064dfab873a71817029e0d',
+    image: 'https://i.scdn.co/image/ab67616d000048516a663aec8bf10c190f4ad9af'
+  },
+  {
     id: '1kIKCaRH85flXDJUKoxlUJ',
     href: 'https://api.spotify.com/v1/tracks/1kIKCaRH85flXDJUKoxlUJ',
     name: 'De cero a héroe - Susan Martín - Helen Quiroga - Paula Bas - Cani González - María Caneda - Hercules Original Soundtrack',
@@ -508,13 +515,6 @@ export const DISNEY_SONGS: Song[] = [
     name: 'Asalto al castillo - de "La Bella y La Bestia"/Banda Sonora Original - Xavier Ribera - Coro - La Bella y La Bestia - La Bella y La Bestia (Edición Especial/Banda Sonora Original)',
     preview_url: 'https://p.scdn.co/mp3-preview/763efca575b678d7b4096419f1bf907c277a2e54?cid=adaaf209fb064dfab873a71817029e0d',
     image: 'https://i.scdn.co/image/ab67616d0000485180267288bf73e6258b6d6db1'
-  },
-  {
-    id: '3HLo3xvKkAdIhPjHpi9kb5',
-    href: 'https://api.spotify.com/v1/tracks/3HLo3xvKkAdIhPjHpi9kb5',
-    name: "Un nuevo hogar - Tony Menguiano - Opetaia Foa'i - Vaiana (Banda Sonora Original en Castellano)",
-    preview_url: 'https://p.scdn.co/mp3-preview/bc0b941173859c0261bc1b31ebee0f73bc950be2?cid=adaaf209fb064dfab873a71817029e0d',
-    image: 'https://i.scdn.co/image/ab67616d000048516a663aec8bf10c190f4ad9af'
   },
   {
     id: '0wTF9DTOZ1UpElEiCKuJjS',
