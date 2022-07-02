@@ -1,5 +1,3 @@
 https://disney.oidle.app/* https://oidle.app/disney 200
-https://tuna.oidle.app https://oidle.app/tuna 200
-https://tuna.oidle.app/ https://oidle.app/tuna 200
-https://tuna.oidle.app/* https://oidle.app/tuna 200
+https://tuna.oidle.app/* https://oidle.app/tuna 301!
 /*  /index.html 200
