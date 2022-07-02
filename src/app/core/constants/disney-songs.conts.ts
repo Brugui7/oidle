@@ -1,6 +1,6 @@
 import { Song } from 'src/app/core/models/song.model';
 
-export const DISNEY_SONG_NAMES: string[] =[
+export const DISNEY_SONG_NAMES: string[] = [
   'Frankenweenie Disney Logo - Danny Elfman - Frankenweenie (Original Motion Picture Soundtrack)',
   'Voy A Ser el Rey León - Marc Pociello - Angela Aloy - Eduard Doncos - Lo Mejor De El Rey León (Best Of Lion King)',
   'De cero a héroe - Susan Martín - Helen Quiroga - Paula Bas - Cani González - María Caneda - Hercules Original Soundtrack',

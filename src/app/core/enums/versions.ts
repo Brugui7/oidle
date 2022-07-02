@@ -1,4 +1,5 @@
 export enum Version {
   standard = '',
-  disney = 'DISNEY'
+  disney = 'DISNEY',
+  tuna = 'TUNA'
 }
