@@ -17,6 +17,7 @@ export class VersionsSelectorComponent {
   ) { }
 
   public goToVersion(version: string): void {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.router.navigate([version.toLocaleLowerCase()]);
     this.closeDialog();
   }
