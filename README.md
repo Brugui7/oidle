@@ -22,6 +22,8 @@
 
 # Roadmap
 
-- [ x ] Semi dynamic versions Version 
-- [ x ] Stats
+- [x] Semi dynamic versions 
+
+- [x] Stats
+
 - [ ] One ad when a game is finished
