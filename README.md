@@ -8,6 +8,7 @@
 
 <p align="center">
   <a href="https://oidle.app"><strong>oidle.app</strong></a>
+  <br>
   <a href="https://play.google.com/store/apps/details?id=com.brugui.oidle"><strong>Android app</strong></a>
   <br>
   <br>
